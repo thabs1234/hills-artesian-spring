@@ -80,17 +80,11 @@ function updateRockData() {
 
 const canvas = document.getElementById('view');
 const statsEl = document.getElementById('stats');
-const errEl = document.getElementById('err');
 
 function fail(msg) {
-  errEl.textContent = msg;
-  errEl.style.display = 'block';
   throw new Error(msg);
 }
-window.addEventListener('error', (e) => {
-  errEl.textContent = 'Error: ' + e.message;
-  errEl.style.display = 'block';
-});
+
 
 // ---------------------------------------------------------------------------
 // Backend selection: ?api=webgl2|webgpu overrides; otherwise prefer WebGPU
