@@ -6,6 +6,7 @@
 <title>Hills Artesian Spring Water — Trade Presenter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
 :root {
   --color-primary: #1C1917;
@@ -472,7 +473,24 @@ ul { list-style: none; }
 <header class="header">
   <div class="container">
     <a href="#" class="brand">
-      <span class="brand-mark">H</span>
+      <svg class="brand-mark" viewBox="0 0 400 400" width="32" height="32">
+        <defs>
+          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#D4AF37"/>
+            <stop offset="0.5" stop-color="#A16207"/>
+            <stop offset="1" stop-color="#8B6914"/>
+          </linearGradient>
+          <linearGradient id="blackGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2A2118"/>
+            <stop offset="1" stop-color="#1C1917"/>
+          </linearGradient>
+        </defs>
+        <rect width="32" height="32" rx="6" fill="url(#blackGrad)"/>
+        <path d="M0,32 L0,26 Q4,25 8,27 Q12,24 16,27 Q20,25 24,27 Q28,26 32,27 L32,32 Z" fill="url(#goldGrad)" opacity="0.5"/>
+        <circle cx="16" cy="22" r="4" fill="#D4AF37" opacity="0.5"/>
+        <rect x="8" y="26" width="16" height="4" rx="2" fill="#D4AF37" opacity="0.6"/>
+        <text x="16" y="30" text-anchor="middle" font-family="Cormorant, Georgia, serif" font-size="14" font-weight="600" fill="#FFFFFF">H</text>
+      </svg>
       Hills
     </a>
     <nav class="nav-links">
@@ -750,10 +768,27 @@ ul { list-style: none; }
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-brand">
-      <span class="brand-mark">H</span>
+    <a href="#" class="footer-brand">
+      <svg width="32" height="32" viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#D4AF37"/>
+            <stop offset="0.5" stop-color="#A16207"/>
+            <stop offset="1" stop-color="#8B6914"/>
+          </linearGradient>
+          <linearGradient id="blackGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2A2118"/>
+            <stop offset="1" stop-color="#1C1917"/>
+          </linearGradient>
+        </defs>
+        <rect width="32" height="32" rx="6" fill="url(#blackGrad)"/>
+        <path d="M0,32 L0,26 Q4,25 8,27 Q12,24 16,27 Q20,25 24,27 Q28,26 32,27 L32,32 Z" fill="url(#goldGrad)" opacity="0.5"/>
+        <circle cx="16" cy="22" r="4" fill="#D4AF37" opacity="0.5"/>
+        <rect x="8" y="26" width="16" height="4" rx="2" fill="#D4AF37" opacity="0.6"/>
+        <text x="16" y="30" text-anchor="middle" font-family="Cormorant, Georgia, serif" font-size="14" font-weight="600" fill="#FFFFFF">H</text>
+      </svg>
       Hills <span class="accent">Artesian</span>
-    </div>
+    </a>
     <div class="footer-links">
       <a href="#story">Story</a>
       <a href="#difference">Why Hills</a>
