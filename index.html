@@ -8,25 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --color-primary: #FFFFFF;
-  --color-on-primary: #1A1A2E;
-  --color-secondary: #FFFFFF;
-  --color-accent: #F2A900;
-  --color-on-accent: #1A1A2E;
-  --color-background: #1A1A2E;
-  --color-foreground: #1A1A2E;
+  --color-primary: #F5F0EB;
+  --color-on-primary: #1C1917;
+  --color-background: #F8F5F0;
   --color-card: #FFFFFF;
-  --color-card-foreground: #1A1A2E;
-  --color-muted: #1A1A2E;
-  --color-muted-foreground: #1A1A2E;
-  --color-border: #D6E0EB;
-  --color-destructive: #C62828;
-  --color-on-destructive: #FFFFFF;
-  --color-ring: #B3D4F0;
+  --color-card-foreground: #1C1917;
+  --color-muted: #F5F0EB;
+  --color-muted-foreground: #8A8278;
+  --color-accent: #B8860B;
+  --color-on-accent: #FFFFFF;
+  --color-accent-gold: #D4AF37;
+  --color-on-accent-gold: #FFFFFF;
+  --color-blue: #1A73E8;
+  --color-on-blue: #FFFFFF;
+  --color-border: #E0D8D0;
+  --color-border-hover: #C8B890;
+  --color-glow: #F2A900;
   --radius: 12px;
-  --shadow: 0 1px 3px rgba(26,26,46,.08), 0 1px 2px rgba(26,26,46,.04);
-  --shadow-lg: 0 12px 48px rgba(26,26,46,.12);
-  --shadow-xl: 0 20px 60px rgba(26,26,46,.18);
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 1px 3px rgba(28,25,23,.08), 0 1px 2px rgba(28,25,23,.04);
+  --shadow-lg: 0 12px 48px rgba(28,25,23,.1);
+  --shadow-xl: 0 16px 48px rgba(28,25,23,.15);
   --font-heading: 'Cormorant', Georgia, serif;
   --font-body: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   --space: 24px;
@@ -45,7 +48,7 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.7;
-  color: #FFFFFF;
+  color: var(--color-foreground);
   background: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,8 +72,8 @@ ul { list-style: none; }
 /* Header */
 .header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(240,244,248,.92); backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
 }
 .header .container {
   display: flex; align-items: center; justify-content: space-between;
@@ -87,71 +90,72 @@ ul { list-style: none; }
 }
 .nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a {
-  color: var(--color-muted-foreground); font-size: 14px; font-weight: 400; transition: color .2s;
+  color: var(--color-foreground); font-size: 14px; font-weight: 400; transition: color .2s;
 }
-.nav-links a:hover { color: var(--color-on-primary); }
+.nav-links a:hover { color: var(--color-accent); }
 .header-cta {
   background: var(--color-accent); color: var(--color-on-accent); padding: 10px 20px;
-  border-radius: 6px; font-size: 14px; font-weight: 500; transition: opacity .2s;
+  border-radius: 6px; font-size: 14px; font-weight: 600; font-family: var(--font-body);
+  transition: opacity .2s;
 }
 .header-cta:hover { opacity: .9; }
 
 /* Mobile nav */
 .mobile-menu {
   display: none; position: absolute; top: 72px; left: 0; right: 0;
-  background: rgba(28,25,23,.98); backdrop-filter: blur(12px);
-  padding: 24px; flex-direction: column; gap: 16px; border-bottom: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.98); backdrop-filter: blur(12px);
+  padding: 24px; flex-direction: column; gap: 16px; border-bottom: 1px solid var(--color-border);
 }
 .mobile-menu.open { display: flex; }
 
 /* Hero */
 .hero {
-  position: relative; overflow: hidden; padding: 200px 0 140px;
-  background: var(--color-primary);
+  position: relative; overflow: hidden; padding: 240px 0 140px;
+  background: var(--color-background);
 }
 .hero::before {
-  content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8860B' fill-opacity='0.05'/%3E%3C/svg%3E");
+  content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B8860B' fill-opacity='0.04'/%3E%3C/svg%3E");
   background-size: 60px 60px;
 }
 .hero .container { position: relative; z-index: 2; }
 .hero-badge {
   display: inline-block; padding: 8px 20px; border-radius: 24px;
-  background: rgba(184,134,11,.10); border: 1px solid rgba(184,134,11,.25);
-  color: var(--color-accent); font-size: 14px; font-weight: 500;
-  letter-spacing: .5px; text-transform: uppercase;
+  background: rgba(184,134,11,.15); border: 1px solid rgba(184,134,11,.3);
+  color: var(--color-accent); font-size: 14px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
 }
 .hero h1 {
   font-family: var(--font-heading); font-size: 80px; font-weight: 600;
-  color: #FFFFFF; line-height: 1.05; letter-spacing: -2px;
+  color: var(--color-foreground); line-height: 1.05; letter-spacing: -2px;
   margin: 20px 0 32px;
 }
 .hero h1 .accent { color: var(--color-accent); }
 .hero p {
-  color: #FFFFFF; font-size: 20px; font-weight: 300;
+  color: var(--color-foreground); font-size: 20px; font-weight: 300;
   max-width: 600px; line-height: 1.8;
 }
 .hero-cta-primary {
-  background: var(--color-accent); color: #FFFFFF; padding: 18px 36px;
+  background: var(--color-accent); color: var(--color-on-accent); padding: 18px 36px;
   border-radius: 10px; font-size: 17px; font-weight: 600; font-family: var(--font-body);
   transition: transform .2s, box-shadow .2s;
 }
 .hero-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(184,134,11,.4); }
 .hero-cta-secondary {
-  background: transparent; color: #FFFFFF;
-  border: 1px solid rgba(255,255,255,.4); padding: 16px 32px;
-  border-radius: 10px; font-size: 17px; font-weight: 500; font-family: var(--font-body);
+  background: transparent; color: var(--color-foreground);
+  border: 1px solid var(--color-border); padding: 18px 32px;
+  border-radius: 10px; font-size: 17px; font-weight: 600; font-family: var(--font-body);
   transition: border-color .2s;
 }
-.hero-cta-secondary:hover { border-color: var(--color-on-primary); }
+.hero-cta-secondary:hover { border-color: var(--color-accent); }
 
 .hero-image {
-  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
   width: 300px; height: 300px; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(161,98,7,.15), rgba(161,98,7,.05));
   border: 1px solid rgba(161,98,7,.2);
   display: flex; align-items: center; justify-content: center;
   color: var(--color-muted-foreground); font-size: 14px; font-weight: 500;
   font-family: var(--font-body); overflow: hidden;
+  z-index: 1;
 }
 @media (max-width: 768px) {
   .hero-image { width: 200px; height: 200px; right: 15px; font-size: 11px; }
@@ -161,8 +165,14 @@ ul { list-style: none; }
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.06), transparent 60%);
 }
 
+/* Hero content spacing to prevent overlap */
+.hero .reveal {
+  position: relative;
+  z-index: 1;
+}
+
 /* Section base */
-.section { padding: 120px 0; }
+.section { padding: 140px 0; }
 .section-label {
   display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600;
   letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-accent);
@@ -217,7 +227,7 @@ ul { list-style: none; }
   font-size: 32px; color: var(--color-muted); font-weight: 700;
 }
 .pillar-icon {
-  width: 48px; height: 48px; border-radius: 8px; background: rgba(161,98,7,.1);
+  width: 48px; height: 48px; border-radius: 8px; background: rgba(161,98,7,.15);
   display: flex; align-items: center; justify-content: center; color: var(--color-accent);
   margin-bottom: 16px;
 }
@@ -303,12 +313,12 @@ ul { list-style: none; }
 }
 
 /* Pricing */
-.pricing { background: #1A1A2E; }
+.pricing { background: var(--color-background); }
 .pricing-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: start;
 }
 .pricing-card {
-  background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius);
+  background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius);
   padding: 32px; color: var(--color-foreground); transition: transform .2s, box-shadow .2s;
 }
 .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
@@ -473,8 +483,8 @@ ul { list-style: none; }
 .products-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
 }
-.products-left .section-title { font-size: 38px; color: var(--color-on-primary); }
-.products-left p { color: var(--color-muted); font-size: 17px; line-height: 1.8; margin-bottom: 24px; }
+.products-left .section-title { font-size: 38px; color: var(--color-foreground); }
+.products-left p { color: var(--color-muted-foreground); font-size: 17px; line-height: 1.8; margin-bottom: 24px; }
 
 /* Mobile responsive */
 @media (max-width: 1024px) {
@@ -560,8 +570,7 @@ ul { list-style: none; }
 </section>
 
 <!-- Story -->
-<section class="section story" id="story" style="background: linear-gradient(180deg, var(--color-background), rgba(28,25,23,.9)); position: relative; overflow: hidden; padding: 100px 0;">
-  <div style="position:absolute; inset:0; background: url('assets/story-bg.png'); background-size: cover; background-position: center; opacity: .12; pointer-events: none;"></div>
+<section class="section story" id="story" style="background: var(--color-background); position: relative; overflow: hidden; padding: 100px 0;">
   <div class="container">
     <div class="story-grid">
       <div class="story-content reveal">
@@ -621,8 +630,7 @@ ul { list-style: none; }
 </section>
 
 <!-- Products -->
-<section class="section products" id="products" style="background: linear-gradient(180deg, rgba(28,25,23,.92), rgba(28,25,23,.88)); position: relative; overflow: hidden; padding: 100px 0;">
-  <div style="position:absolute; inset:0; background: url('assets/products-bg.png'); background-size: cover; background-position: center; opacity: .13; pointer-events: none;"></div>
+<section class="section products" id="products" style="background: var(--color-background); position: relative; overflow: hidden; padding: 100px 0;">
   <div class="container">
     <div class="products-grid">
       <div class="products-left reveal">
@@ -728,8 +736,7 @@ ul { list-style: none; }
 </section>
 
 <!-- Contact -->
-<section class="section contact" id="contact" style="background: linear-gradient(180deg, rgba(28,25,23,.92), rgba(28,25,23,.88)); position: relative; overflow: hidden; padding: 100px 0;">
-  <div style="position:absolute; inset:0; background: url('assets/contact-bg.png'); background-size: cover; background-position: center; opacity: .12; pointer-events: none;"></div>
+<section class="section contact" id="contact" style="background: var(--color-background); position: relative; overflow: hidden; padding: 100px 0;">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-left reveal">
