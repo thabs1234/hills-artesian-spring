@@ -6,7 +6,6 @@
 <title>Hills Artesian Spring Water — Trade Presenter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
 :root {
   --color-primary: #1C1917;
@@ -62,6 +61,16 @@ ul { list-style: none; }
   padding: 8px 16px; z-index: 100; transition: top .2s; font-family: var(--font-body);
 }
 .skip-link:focus { top: 0; }
+
+/* Demo badge */
+.demo-badge {
+  position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-size: 12px;
+  color: var(--color-muted-foreground); background: var(--color-card);
+  padding: 8px 16px; border-radius: 20px; box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; gap: 8px; font-family: var(--font-body);
+  border: 1px solid var(--color-border);
+}
+.demo-badge span { color: var(--color-accent); font-weight: 600; }
 
 /* Container */
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space); }
@@ -338,24 +347,7 @@ ul { list-style: none; }
 .pricing-card.featured .pricing-item { background: rgba(161,98,7,.08); }
 .pricing-card.featured .pricing-item .label { color: var(--color-secondary); }
 
-/* FAQ */
-.faq { background: var(--color-background); }
-.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.faq-item { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 28px; transition: transform .2s, box-shadow .2s; }
-.faq-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-.faq-question { display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-family: var(--font-body); font-size: 16px; font-weight: 600; color: var(--color-foreground); }
-.faq-question svg { flex-shrink: 0; transition: transform .3s; }
-.faq-item.open .faq-question svg { transform: rotate(180deg); }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s ease; padding-top: 0; padding-bottom: 0; }
-.faq-item.open .faq-answer { max-height: 300px; padding-top: 16px; }
-.faq-answer p { color: var(--color-muted-foreground); font-size: 15px; line-height: 1.7; margin: 0; }
-
-/* Closer / CTA */
-.close { text-align: center; }
-.close .section-label { display: block; margin-bottom: 16px; }
-.close .section-title { font-size: 48px; }
-.close .section-subtitle { margin: 0 auto 32px; }
-.close-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+/* Contact */
 .contact { background: var(--color-primary); position: relative; overflow: hidden; }
 .contact::before {
   content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A16207' fill-opacity='0.04'/%3E%3C/svg%3E");
@@ -474,79 +466,6 @@ ul { list-style: none; }
   .brand-mark { width: 28px; height: 28px; font-size: 14px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-}
-
-/* Waterfall & Cold Bottle visual section */
-.visual {
-  background: var(--color-background);
-  position: relative;
-  overflow: hidden;
-  padding: 100px 0;
-}
-.visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A16207' fill-opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 60px 60px;
-}
-.visual .container {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .hero h1 { font-size: 56px; }
-  .hero { padding: 160px 0 100px; }
-  .hero-image { width: 300px; height: 300px; right: -20px; }
-  .story-grid { grid-template-columns: 1fr; gap: 40px; }
-  .story-image { height: 320px; }
-  .pillars, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-  .products-grid { grid-template-columns: 1fr; gap: 40px; }
-  .products-left .section-title { font-size: 32px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .footer .container { flex-direction: column; text-align: center; }
-  .visual .container { grid-template-columns: 1fr; gap: 40px; }
-  .visual .container > div { display: flex; justify-content: center; }
-  .visual .container > div:last-child { justify-content: flex-start; }
-}
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 40px; }
-  .hero p { font-size: 16px; }
-  .hero-badge { font-size: 11px; padding: 4px 12px; }
-  .hero-ctas { flex-direction: column; width: 100%; }
-  .hero-cta-primary, .hero-cta-secondary { text-align: center; }
-  .nav-links { display: none; }
-  .mobile-menu.open { display: flex; }
-  .section-title { font-size: 30px; }
-  .pillars { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .pricing-card.featured { order: -1; }
-  .pricing-resize { display: none; }
-  .story-figure { display: none; }
-  .story-image { height: 260px; }
-  .products-right .product-visual { height: 260px; }
-  .contact-form { padding: 20px; }
-  .header .container { height: 60px; }
-  .mobile-menu { display: none; }
-}
-
-@media (max-width: 480px) {
-  .hero h1 { font-size: 32px; }
-  .brand { font-size: 18px; }
-  .brand-mark { width: 28px; height: 28px; font-size: 14px; }
-}
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -557,15 +476,15 @@ ul { list-style: none; }
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Demo badge removed per user request -->
+<!-- Demo badge -->
+<div class="demo-badge">Demo: Hills Artesian Spring Trade Presenter · Built with Tailwind + UI/UX Pro Max</div>
 
 <!-- Header -->
 <header class="header">
   <div class="container">
     <a href="#" class="brand">
-      <svg class="brand-logo" viewBox="0 0 600 120" width="180" height="36">
-        <use href="header-logo.svg#logo"></use>
-      </svg>
+      <span class="brand-mark">H</span>
+      Hills
     </a>
     <nav class="nav-links">
       <a href="#story">Story</a>
@@ -771,426 +690,6 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section faq" id="faq" style="background: linear-gradient(180deg, var(--color-background), rgba(28,25,23,.9)); position: relative; overflow: hidden; padding: 100px 0;">
-  <div class="container">
-    <div class="reveal">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-subtitle">Quick answers to common trade questions.</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item reveal">
-        <div class="faq-question">
-          <span>What makes Hills Artesian Spring Water different from other bottled water?</span>
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="faq-answer">
-          <p>Hills Artesian Spring Water is sourced from a uniquely protected volcanic aquifer beneath the Sabi Sand region of Mpumalanga, South Africa. The water is naturally filtered through ancient basalt rock, giving it a naturally pure profile (pH 7.0 for still, pH 4.9 for sparkling) and a smooth, clean taste with no added minerals or chemicals.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-question">
-          <span>Is the water naturally still and sparkling, or is it enhanced?</span>
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="faq-answer">
-          <p>The still and sparkling are both naturally sourced from the same volcanic aquifer. The sparkling version naturally carbonates at depth under pressure, creating a naturally crisp, effervescent taste. No carbonation is added artificially.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-question">
-          <span>Where is Hills Artesian Spring Water bottled?</span>
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="faq-answer">
-          <p>All Hills Artesian Spring Water is bottled at the source in Malelane, Mpumalanga, South Africa. The bottling facility is located directly above the aquifer, ensuring minimal handling and maximum freshness.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-question">
-          <span>What are the case prices for trade accounts?</span>
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="faq-answer">
-          <p>Case prices (paks of 12) are as follows: Still 500ml R230/case (R9.50/unit), Sparkling 500ml R242/case (R10.08/unit), Still 750ml R274/case (R11.00/unit), Still 1L R146/case (R12.00/unit), Sparkling 1L R156/case (R13.00/unit). Larger case/pak options are available on request.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-question">
-          <span>Can I order samples or request a trade discount?</span>
-          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="faq-answer">
-          <p>Yes. We welcome wholesale accounts, distributors, and retail partners. Contact us directly at 066 572 9783 or WhatsApp 077 373 9991 to request samples, a trade quotation, or discuss distribution opportunities.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Closer / CTA -->
-<section class="section close" id="closer" style="background: linear-gradient(180deg, rgba(28,25,23,.96), rgba(28,25,23,1)); position: relative; overflow: hidden; padding: 100px 0; text-align: center;">
-  <div class="container">
-    <div class="reveal">
-      <span class="section-label" style="color: var(--color-accent);">Hills</span>
-      <h2 class="section-title" style="color: #F2A900;">Naturally Rare. Simply Pure.</h2>
-      <p class="section-subtitle" style="color: var(--color-muted); max-width: 600px; margin: 0 auto;">Source from the volcanic aquifer beneath Mpumalanga. Trade wholesale, distribute, or partner with Hills Artesian Spring Water.</p>
-      <div class="close-actions">
-        <a href="#contact" class="btn btn-gold">Request Trade Quotation</a>
-        <a href="https://wa.me/270773739991" target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Waterfall & Cold Bottle -->
-<section class="section visual" id="visual" style="background: var(--color-background); position: relative; overflow: hidden; padding: 100px 0; display: flex; align-items: center; justify-content: center;">
-  <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; width: 100%;">
-    <div style="display: flex; justify-content: center;">
-      <div style="position: relative; width: 100%; max-width: 500px;">
-        <!-- Waterfall SVG -->
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800' width='600' height='800'>
-  <defs>
-    <linearGradient id='waterTop' x1='0' y1='0' x2='0' y2='1'>
-      <stop offset='0' stop-color='#FFD700'/>
-      <stop offset='0.15' stop-color='#F5A623'/>
-      <stop offset='0.35' stop-color='#F2A900'/>
-      <stop offset='0.6' stop-color='#E8910C'/>
-      <stop offset='0.8' stop-color='#D4820A'/>
-      <stop offset='1' stop-color='#BC6D08'/>
-    </linearGradient>
-    <linearGradient id='waterMid' x1='0' y1='0' x2='0' y2='1'>
-      <stop offset='0' stop-color='#F2A900' stop-opacity='0.95'/>
-      <stop offset='1' stop-color='#8B6914' stop-opacity='0.9'/>
-    </linearGradient>
-    <linearGradient id='rockFace' x1='0' y1='0' x2='0' y2='1'>
-      <stop offset='0' stop-color='#4a3f35'/>
-      <stop offset='0.3' stop-color='#3a3128'/>
-      <stop offset='0.6' stop-color='#2a2118'/>
-      <stop offset='0.8' stop-color='#1C1917'/>
-      <stop offset='1' stop-color='#14110E'/>
-    </linearGradient>
-    <linearGradient id='skyGrad' x1='0' y1='0' x2='0' y2='1'>
-      <stop offset='0' stop-color='#1C1917'/>
-      <stop offset='0.4' stop-color='#221A14'/>
-      <stop offset='0.7' stop-color='#1C1917'/>
-      <stop offset='1' stop-color='#14110E'/>
-    </linearGradient>
-    <linearGradient id='foamGrad' x1='0' y1='0' x2='0' y2='1'>
-      <stop offset='0' stop-color='#FFFFFF' stop-opacity='0.6'/>
-      <stop offset='0.5' stop-color='#FFFFFF' stop-opacity='0.3'/>
-      <stop offset='1' stop-color='#FFFFFF' stop-opacity='0.1'/>
-    </linearGradient>
-    <linearGradient id='mistGrad' x1='0' y1='0' x2='0' y2='1'>
-      <stop offset='0' stop-color='rgba(192,192,192,0.15)'/>
-      <stop offset='1' stop-color='rgba(192,192,192,0.05)'/>
-    </linearGradient>
-    <radialGradient id='sparkle' cx='50%' cy='50%' r='50%'>
-      <stop offset='0' stop-color='#FFFFFF' stop-opacity='0.8'/>
-      <stop offset='1' stop-color='#FFFFFF' stop-opacity='0'/>
-    </radialGradient>
-  </defs>
-  <rect width='600' height='800' fill='url(#skyGrad)'/>
-  <path d='M0,650 L0,620 Q80,600 150,610 Q220,605 300,620 Q380,610 460,620 Q520,615 600,620 L600,650 Z' fill='#2a2118' opacity='0.3'/>
-  <path d='M0,680 L0,660 Q100,645 200,655 Q300,648 400,655 Q500,650 600,655 L600,680 Z' fill='#221A14' opacity='0.2'/>
-  <path d='M0,0 L0,800 Q50,795 100,800 Q150,790 200,800 Q250,792 300,800 Q350,798 400,800 Q450,800 500,800 Q550,800 600,800 L600,0 Z' fill='url(#rockFace)'/>
-  <path d='M0,0 L0,800 Q30,790 60,800 Q90,785 120,800 Q150,790 180,800 Q210,795 240,800 Q270,790 300,800 Q330,792 360,800 Q390,798 420,800 Q450,800 480,800 Q510,800 540,800 Q570,800 600,800 Z' fill='#2a2118' opacity='0.4'/>
-  <g>
-    <path d='M160,180 Q162,260 160,350 Q160,450 160,550 Q160,650 160,780 L155,780 Q155,650 155,550 Q155,450 155,350 Q155,260 155,180 Z' fill='url(#waterTop)' opacity='0.9'>
-      <animate attributeName='d' values='M160,180 Q162,260 160,350 Q160,450 160,550 Q160,650 160,780 L155,780 Q155,650 155,550 Q155,450 155,350 Q155,260 155,180 Z;M160,185 Q162,265 160,355 Q160,455 160,555 Q160,655 160,785 L155,780 Q155,650 155,550 Q155,450 155,350 Q155,260 155,180 Z;M160,180 Q162,260 160,350 Q160,450 160,550 Q160,650 160,780 L155,780 Q155,650 155,550 Q155,450 155,350 Q155,260 155,180 Z' dur='4s' repeatCount='indefinite'/>
-    </path>
-    <path d='M175,190 Q177,270 175,360 Q175,460 175,560 Q175,660 175,790 L172,790 Q172,660 172,560 Q172,460 172,360 Q172,270 172,190 Z' fill='url(#waterMid)' opacity='0.85'>
-      <animate attributeName='d' values='M175,190 Q177,270 175,360 Q175,460 175,560 Q175,660 175,790 L172,790 Q172,660 172,560 Q172,460 172,360 Q172,270 172,190 Z;M175,195 Q177,275 175,365 Q175,465 175,565 Q175,665 175,795 L172,790 Q172,660 172,560 Q172,460 172,360 Q172,270 172,190 Z;M175,190 Q177,270 175,360 Q175,460 175,560 Q175,660 175,790 L172,790 Q172,660 172,560 Q172,460 172,360 Q172,270 172,190 Z' dur='4.5s' repeatCount='indefinite'/>
-    </path>
-    <path d='M190,200 Q192,280 190,370 Q190,470 190,570 Q190,670 190,800 L189,800 Q189,670 189,570 Q189,470 189,370 Q189,280 189,200 Z' fill='url(#waterMid)' opacity='0.8'>
-      <animate attributeName='d' values='M190,200 Q192,280 190,370 Q190,470 190,570 Q190,670 190,800 L189,800 Q189,670 189,570 Q189,470 189,370 Q189,280 189,200 Z;M190,205 Q192,285 190,375 Q190,475 190,575 Q190,675 190,805 L189,800 Q189,670 189,570 Q189,470 189,370 Q189,280 189,200 Z;M190,200 Q192,280 190,370 Q190,470 190,570 Q190,670 190,800 L189,800 Q189,670 189,570 Q189,470 189,370 Q189,280 189,200 Z' dur='5s' repeatCount='indefinite'/>
-    </path>
-  </g>
-  <g>
-    <path d='M140,150 Q150,170 160,180 Q170,170 180,150 Q175,160 170,150 Q165,165 160,150 Q155,160 150,150 Z' fill='url(#foamGrad)' opacity='0.7'>
-      <animate attributeName='d' values='M140,150 Q150,170 160,180 Q170,170 180,150 Q175,160 170,150 Q165,165 160,150 Q155,160 150,150 Z;M140,155 Q150,175 160,185 Q170,175 180,155 Q175,165 170,155 Q165,170 160,155 Q155,165 150,155 Z;M140,150 Q150,170 160,180 Q170,170 180,150 Q175,160 170,150 Q165,165 160,150 Q155,160 150,150 Z' dur='3s' repeatCount='indefinite'/>
-    </path>
-    <path d='M150,140 Q160,160 170,170 Q180,160 190,140 Q185,155 180,140 Q175,155 170,140 Q165,155 160,140 Z' fill='url(#foamGrad)' opacity='0.5'/>
-  </g>
-  <ellipse cx='175' cy='790' rx='60' ry='12' fill='#8B6914' opacity='0.3'>
-    <animate attributeName='rx' from='50' to='70' dur='2s' repeatCount='indefinite'/>
-    <animate attributeName='opacity' from='0.2' to='0.4' dur='2s' repeatCount='indefinite'/>
-  </ellipse>
-  <ellipse cx='175' cy='790' rx='30' ry='6' fill='#D4820A' opacity='0.5'>
-    <animate attributeName='rx' from='25' to='35' dur='1.5s' repeatCount='indefinite'/>
-    <animate attributeName='opacity' from='0.4' to='0.6' dur='1.5s' repeatCount='indefinite'/>
-  </ellipse>
-  <g>
-    <circle cx='162' cy='100' r='2.5' fill='#F5A623' opacity='0.9'>
-      <animate attributeName='cy' from='100' to='790' dur='2.2s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.9;0.3;0.9' dur='2.2s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='163' cy='80' r='2' fill='#F5A623' opacity='0.8'>
-      <animate attributeName='cy' from='80' to='790' dur='1.8s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.8;0.2;0.8' dur='1.8s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='161' cy='90' r='3' fill='#F5A623' opacity='0.85'>
-      <animate attributeName='cy' from='90' to='790' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.85;0.3;0.85' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='164' cy='110' r='2' fill='#F2A900' opacity='0.8'>
-      <animate attributeName='cy' from='110' to='790' dur='2s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.8;0.2;0.8' dur='2s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='160' cy='115' r='1.5' fill='#D4820A' opacity='0.7'>
-      <animate attributeName='cy' from='115' to='790' dur='1.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='1.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='163' cy='140' r='2.5' fill='#F2A900' opacity='0.85'>
-      <animate attributeName='cy' from='140' to='790' dur='2.3s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.85;0.3;0.85' dur='2.3s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='165' cy='150' r='2' fill='#F2A900' opacity='0.8'>
-      <animate attributeName='cy' from='150' to='790' dur='1.9s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.8;0.2;0.8' dur='1.9s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='161' cy='145' r='1.5' fill='#D4820A' opacity='0.7'>
-      <animate attributeName='cy' from='145' to='790' dur='1.7s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='1.7s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='162' cy='165' r='2.5' fill='#F5A623' opacity='0.85'>
-      <animate attributeName='cy' from='165' to='790' dur='2.4s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.85;0.3;0.85' dur='2.4s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='164' cy='170' r='2' fill='#F2A900' opacity='0.8'>
-      <animate attributeName='cy' from='170' to='790' dur='2.1s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.8;0.2;0.8' dur='2.1s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='170' cy='200' r='2' fill='#F2A900' opacity='0.8'>
-      <animate attributeName='cy' from='200' to='790' dur='2.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.8;0.25;0.8' dur='2.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='168' cy='210' r='1.5' fill='#F2A900' opacity='0.7'>
-      <animate attributeName='cy' from='210' to='790' dur='2.2s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='2.2s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='172' cy='205' r='2' fill='#F2A900' opacity='0.75'>
-      <animate attributeName='cy' from='205' to='790' dur='2.8s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.75;0.25;0.75' dur='2.8s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='169' cy='225' r='1.5' fill='#D4820A' opacity='0.6'>
-      <animate attributeName='cy' from='225' to='790' dur='2.4s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.6;0.2;0.6' dur='2.4s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='171' cy='230' r='2' fill='#F2A900' opacity='0.7'>
-      <animate attributeName='cy' from='230' to='790' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='167' cy='240' r='1.5' fill='#F5A623' opacity='0.7'>
-      <animate attributeName='cy' from='240' to='790' dur='2.3s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='2.3s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='173' cy='245' r='2' fill='#F2A900' opacity='0.75'>
-      <animate attributeName='cy' from='245' to='790' dur='2.7s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.75;0.25;0.75' dur='2.7s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='170' cy='255' r='1.5' fill='#D4820A' opacity='0.6'>
-      <animate attributeName='cy' from='255' to='790' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.6;0.2;0.6' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='168' cy='265' r='1.5' fill='#F5A623' opacity='0.7'>
-      <animate attributeName='cy' from='265' to='790' dur='2.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='2.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='172' cy='270' r='2' fill='#F2A900' opacity='0.7'>
-      <animate attributeName='cy' from='270' to='790' dur='2.8s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='2.8s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='175' cy='300' r='2' fill='#F2A900' opacity='0.75'>
-      <animate attributeName='cy' from='300' to='790' dur='2.4s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.75;0.25;0.75' dur='2.4s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='173' cy='310' r='1.5' fill='#D4820A' opacity='0.6'>
-      <animate attributeName='cy' from='310' to='790' dur='2.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.6;0.2;0.6' dur='2.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='176' cy='320' r='2' fill='#F2A900' opacity='0.7'>
-      <animate attributeName='cy' from='320' to='790' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.7;0.2;0.7' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='174' cy='335' r='1.5' fill='#F5A623' opacity='0.65'>
-      <animate attributeName='cy' from='335' to='790' dur='2.4s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.65;0.2;0.65' dur='2.4s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='177' cy='340' r='2' fill='#F2A900' opacity='0.65'>
-      <animate attributeName='cy' from='340' to='790' dur='2.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.65;0.2;0.65' dur='2.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='172' cy='350' r='1.5' fill='#D4820A' opacity='0.6'>
-      <animate attributeName='cy' from='350' to='790' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.6;0.2;0.6' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='175' cy='360' r='2' fill='#F2A900' opacity='0.65'>
-      <animate attributeName='cy' from='360' to='790' dur='2.7s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.65;0.2;0.65' dur='2.7s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='170' cy='370' r='1.5' fill='#F5A623' opacity='0.6'>
-      <animate attributeName='cy' from='370' to='790' dur='2.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.6;0.2;0.6' dur='2.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='176' cy='380' r='2' fill='#F2A900' opacity='0.65'>
-      <animate attributeName='cy' from='380' to='790' dur='2.8s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.65;0.2;0.65' dur='2.8s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='173' cy='390' r='1.5' fill='#D4820A' opacity='0.55'>
-      <animate attributeName='cy' from='390' to='790' dur='2.7s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.55;0.2;0.55' dur='2.7s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='180' cy='420' r='1.5' fill='#F2A900' opacity='0.55'>
-      <animate attributeName='cy' from='420' to='790' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.55;0.15;0.55' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='178' cy='430' r='1.5' fill='#F5A623' opacity='0.5'>
-      <animate attributeName='cy' from='430' to='790' dur='2.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.5;0.15;0.5' dur='2.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='182' cy='440' r='1.5' fill='#F2A900' opacity='0.5'>
-      <animate attributeName='cy' from='440' to='790' dur='2.7s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.5;0.15;0.5' dur='2.7s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='179' cy='450' r='1.5' fill='#D4820A' opacity='0.45'>
-      <animate attributeName='cy' from='450' to='790' dur='2.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.45;0.15;0.45' dur='2.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='183' cy='460' r='1.5' fill='#F2A900' opacity='0.5'>
-      <animate attributeName='cy' from='460' to='790' dur='2.6s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.5;0.15;0.5' dur='2.6s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='177' cy='470' r='1.5' fill='#F5A623' opacity='0.45'>
-      <animate attributeName='cy' from='470' to='790' dur='2.7s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.45;0.15;0.45' dur='2.7s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='181' cy='480' r='1.5' fill='#F2A900' opacity='0.45'>
-      <animate attributeName='cy' from='480' to='790' dur='2.8s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.45;0.15;0.45' dur='2.8s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='175' cy='650' r='1' fill='#FFFFFF' opacity='0.4'>
-      <animate attributeName='cy' from='650' to='790' dur='3s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.4;0;0.4' dur='3s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='175' cy='700' r='1' fill='#FFFFFF' opacity='0.3'>
-      <animate attributeName='cy' from='700' to='790' dur='3.5s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.3;0;0.3' dur='3.5s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='175' cy='680' r='1' fill='#F2A900' opacity='0.4'>
-      <animate attributeName='cy' from='680' to='790' dur='3.2s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.4;0;0.4' dur='3.2s' repeatCount='indefinite'/>
-    </circle>
-    <circle cx='175' cy='720' r='1' fill='#FFFFFF' opacity='0.35'>
-      <animate attributeName='cy' from='720' to='790' dur='3.8s' repeatCount='indefinite'/>
-      <animate attributeName='opacity' values='0.35;0;0.35' dur='3.8s' repeatCount='indefinite'/>
-    </circle>
-  </g>
-  <ellipse cx='175' cy='790' rx='50' ry='8' fill='#D4AF37' opacity='0.15'>
-    <animate attributeName='rx' from='40' to='60' dur='1.8s' repeatCount='indefinite'/>
-    <animate attributeName='opacity' from='0.1' to='0.25' dur='1.8s' repeatCount='indefinite'/>
-  </ellipse>
-  <ellipse cx='175' cy='770' rx='120' ry='15' fill='url(#mistGrad)' opacity='0.4'>
-    <animate attributeName='opacity' values='0.3;0.5;0.3' dur='4s' repeatCount='indefinite'/>
-    <animate attributeName='rx' values='110;130;110' dur='4s' repeatCount='indefinite'/>
-  </ellipse>
-  <ellipse cx='160' cy='450' rx='80' ry='6' fill='#F2A900' opacity='0.05'>
-    <animate attributeName='opacity' values='0.03;0.07;0.03' dur='3s' repeatCount='indefinite'/>
-  </ellipse>
-</svg>
-      </div>
-    </div>
-    <div style="display: flex; justify-content: center;">
-      <div style="position: relative; width: 100%, max-width: 500px;">
-        <!-- Cold Bottle SVG -->
-        <svg class="bottle-svg" viewBox="0 0 600 800" width="500" height="667">
-          <defs>
-            <linearGradient id="bottleGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#E8E4DF"/>
-              <stop offset="0.5" stop-color="#D4CCC4"/>
-              <stop offset="1" stop-color="#B8B0A5"/>
-            </linearGradient>
-            <linearGradient id="frostGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#F5F5F5"/>
-              <stop offset="0.5" stop-color="#E0E0E0"/>
-              <stop offset="1" stop-color="#C8C8C8"/>
-            </linearGradient>
-            <linearGradient id="liquidGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#F5C542"/>
-              <stop offset="1" stop-color="#C8760A"/>
-            </linearGradient>
-            <linearGradient id="shadowGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="rgba(0,0,0,0.2)"/>
-              <stop offset="1" stop-color="rgba(0,0,0,0.4)"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="800" fill="#1C1917" rx="20" ry="20"/>
-          <g opacity="0.7">
-            <path d="M150,300 L158,320 L150,340 L142,320 Z" fill="#FFFFFF" opacity="0.6"/>
-            <path d="M165,320 L172,335 L165,350 L158,335 Z" fill="#FFFFFF" opacity="0.5"/>
-            <path d="M178,330 L185,345 L178,360 L171,345 Z" fill="#FFFFFF" opacity="0.4"/>
-            <path d="M155,310 L160,325 L155,340 L150,325 Z" fill="#FFFFFF" opacity="0.5"/>
-            <path d="M172,338 L177,352 L172,367 L167,352 Z" fill="#FFFFFF" opacity="0.4"/>
-          </g>
-          <g opacity="0.6">
-            <circle cx="155" cy="380" r="3" fill="#FFFFFF" opacity="0.8"/>
-            <circle cx="170" cy="400" r="2" fill="#FFFFFF" opacity="0.6"/>
-            <circle cx="185" cy="420" r="2.5" fill="#FFFFFF" opacity="0.7"/>
-            <circle cx="160" cy="440" r="2" fill="#FFFFFF" opacity="0.5"/>
-            <circle cx="175" cy="460" r="1.5" fill="#FFFFFF" opacity="0.6"/>
-          </g>
-          <path d="M120,800 L120,550 Q120,480 150,450 Q180,420 200,380 L400,380 Q420,420 450,450 Q480,480 480,550 L480,800 Z" fill="url(#bottleGrad)"/>
-          <rect x="160" y="320" width="280" height="80" rx="10" fill="url(#bottleGrad)"/>
-          <rect x="165" y="300" width="270" height="30" rx="5" fill="#8B6914"/>
-          <rect x="170" y="295" width="260" height="10" rx="5" fill="#A16207"/>
-          <rect x="175" y="285" width="250" height="10" rx="5" fill="#D4AF37"/>
-          <rect x="185" y="380" width="230" height="200" rx="8" fill="rgba(0,0,0,0.2)"/>
-          <rect x="185" y="380" width="230" height="200" rx="8" fill="url(#frostGrad)" opacity="0.3"/>
-          <rect x="170" y="350" width="260" height="150" rx="10" fill="url(#liquidGrad)" opacity="0.8"/>
-          <g opacity="0.4">
-            <path d="M175,420 L180,435 L175,450 L170,435 Z" fill="#FFFFFF"/>
-            <path d="M190,430 L195,445 L190,460 L185,445 Z" fill="#FFFFFF"/>
-            <path d="M205,440 L210,455 L205,470 L200,455 Z" fill="#FFFFFF"/>
-          </g>
-          <g opacity="0.5">
-            <rect x="160" y="330" width="280" height="80" rx="10" fill="#FFFFFF" opacity="0.1"/>
-            <rect x="160" y="330" width="280" height="80" rx="10" fill="#FFFFFF" opacity="0.08" transform="rotate(-5, 300, 370)"/>
-          </g>
-          <ellipse cx="300" cy="810" rx="180" ry="15" fill="url(#shadowGrad)"/>
-          <g opacity="0.5">
-            <circle cx="150" cy="600" r="2" fill="#FFFFFF" opacity="0.7"/>
-            <circle cx="160" cy="620" r="1.5" fill="#FFFFFF" opacity="0.5"/>
-            <circle cx="170" cy="640" r="2" fill="#FFFFFF" opacity="0.6"/>
-            <circle cx="180" cy="660" r="1.5" fill="#FFFFFF" opacity="0.4"/>
-            <circle cx="190" cy="680" r="2" fill="#FFFFFF" opacity="0.5"/>
-          </g>
-          <g opacity="0.6">
-            <path d="M200,380 L205,395 L200,410 L195,395 Z" fill="#FFFFFF"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/></path>
-            <path d="M220,390 L225,405 L220,420 L215,405 Z" fill="#FFFFFF"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/></path>
-            <path d="M185,400 L190,415 L185,430 L180,415 Z" fill="#FFFFFF"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/></path>
-          </g>
-          <g>
-            <circle cx="155" cy="370" r="1.5" fill="#FFFFFF"><animate attributeName="cy" from="370" to="600" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0;0.8" dur="4s" repeatCount="indefinite"/></circle>
-            <circle cx="170" cy="390" r="1.5" fill="#FFFFFF"><animate attributeName="cy" from="390" to="600" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="5s" repeatCount="indefinite"/></circle>
-            <circle cx="185" cy="410" r="1.5" fill="#FFFFFF"><animate attributeName="cy" from="410" to="600" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="4.5s" repeatCount="indefinite"/></circle>
-          </g>
-        </svg>
-      </div>
-    </div>
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 24px;">
-      <span class="section-label" style="display: inline-flex; align-items: center; gap: 8px;">
-        <span style="width: 24px; height: 3px; background: #F2A900; border-radius: 2px;"></span>
-        <span style="color: #F2A900; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Water Source</span>
-      </span>
-      <h2 class="section-title" style="color: var(--color-foreground); font-size: 32px;">Naturally Rare. Simply Pure.</h2>
-      <p class="section-subtitle" style="color: var(--color-muted-foreground); font-size: 17px; max-width: 500px; line-height: 1.7;">
-        Sourced from a protected volcanic aquifer, the water cascades naturally through ancient basalt rock to emerge as pure, chilled spring water.
-      </p>
-    </div>
-  </div>
-</section>
-
 <!-- Contact -->
 <section class="section contact" id="contact" style="background: linear-gradient(180deg, rgba(28,25,23,.92), rgba(28,25,23,.88)); position: relative; overflow: hidden; padding: 100px 0;">
   <div style="position:absolute; inset:0; background: url('assets/contact-bg.png'); background-size: cover; background-position: center; opacity: .12; pointer-events: none;"></div>
@@ -1262,22 +761,10 @@ ul { list-style: none; }
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <a href="#" class="footer-brand">
-          <svg class="footer-logo" viewBox="0 0 400 400" width="32" height="32">
-            <defs>
-              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#F5C542"/>
-                <stop offset="0.5" stop-color="#F2A900"/>
-                <stop offset="1" stop-color="#C8760A"/>
-              </linearGradient>
-            </defs>
-            <rect width="32" height="32" rx="6" fill="#1C1917"/>
-            <path d="M0,32 L0,26 Q4,25 8,27 Q12,24 16,27 Q20,25 24,27 Q28,26 32,27 L32,32 Z" fill="#F5C542" opacity="0.5"/>
-            <circle cx="16" cy="22" r="4" fill="#F5C542" opacity="0.5"/>
-            <rect x="8" y="26" width="16" height="4" rx="2" fill="#F5C542" opacity="0.6"/>
-          </svg>
-          Hills <span class="accent">Artesian</span>
-        </a>
+    <div class="footer-brand">
+      <span class="brand-mark">H</span>
+      Hills <span class="accent">Artesian</span>
+    </div>
     <div class="footer-links">
       <a href="#story">Story</a>
       <a href="#difference">Why Hills</a>
@@ -1301,21 +788,14 @@ document.querySelector('.nav-links').addEventListener('click', function(e) {
 
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-  reveals.forEach(el => revealObserver.observe(el));
-} else {
-  // Fallback for browsers without IntersectionObserver (e.g. very old browsers)
-  reveals.forEach(el => {
-    el.classList.add('visible');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
   });
-}
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObserver.observe(el));
 
 // Contact form
 document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -1329,22 +809,25 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     this.reset();
   }, 3000);
 });
-
-// FAQ accordion
-document.querySelectorAll('.faq-question').forEach(q => {
-  q.addEventListener('click', function() {
-    const item = this.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    // Open this one
-    if (isOpen) {
-      item.classList.remove('open');
-    } else {
-      item.classList.add('open');
-    }
-  });
-});
 </script>
+</footer>
+
+<!-- Waterfall 3D Section -->
+<section class="waterfall-section" id="waterfall" style="position:relative; overflow:hidden; background:var(--black); padding:0; margin:0;">
+  <canvas id="view" style="width:100%; height:100%;"></canvas>
+  <div class="hud" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:10;">
+    <div id="title" style="top:12px; left:18px; font-size:13px;">
+      <b style="color:var(--gold-light); font-size:14px;">Hills</b>
+      <span style="color:rgba(255,255,255,0.15);">Artesian Spring Water</span>
+    </div>
+    <div id="stats" style="bottom:14px; left:18px; font-size:10px; opacity:0.4;">…</div>
+    <div id="help" style="bottom:14px; right:18px; text-align:right; font-size:10px; opacity:0.25;">drag rock — move · drag — orbit · wheel — zoom · space — pause · f — cycle renderer</div>
+    <div id="err" style="display:none;"></div>
+  </div>
+  <div class="brand-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:10;"></div>
+  <div class="brand-watermark" style="position:fixed; bottom:20px; right:20px; z-index:10; pointer-events:none; color:rgba(255,255,255,0.12); font-size:10px; letter-spacing:1.5px; text-transform:uppercase;">Naturally Rare. Simply Pure.</div>
+  <script type="module" src="src/app.js"></script>
+</section>
+
 </body>
 </html>
