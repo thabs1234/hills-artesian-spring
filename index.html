@@ -334,16 +334,19 @@ ul { list-style: none; }
 /* Pricing */
 .pricing { background: var(--color-background); }
 .pricing-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: start;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start;
 }
 .pricing-card {
   background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius);
-  padding: 28px; color: #FFFFFF; transition: transform .2s, box-shadow .2s;
+  padding: 24px; color: var(--color-foreground); transition: transform .2s, box-shadow .2s;
 }
 .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .pricing-card.featured {
   border-color: var(--color-accent); background: linear-gradient(180deg, #FFF8E7, #FFFFFF);
   box-shadow: 0 0 0 1px rgba(184,134,11,.25);
+}
+.pricing-card.featured .pricing-item { background: rgba(184,134,11,.08); }
+.pricing-card.featured .pricing-item .label { color: var(--color-muted-foreground); }
 }
 .pricing-card.featured .pricing-item { background: rgba(184,134,11,.08); }
 .pricing-card.featured .pricing-item .label { color: var(--color-secondary); }
