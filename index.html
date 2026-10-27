@@ -145,13 +145,16 @@ ul { list-style: none; }
 .hero-cta-secondary:hover { border-color: var(--color-on-primary); }
 
 .hero-image {
-  position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
-  width: 400px; height: 400px; border-radius: 50%;
+  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  width: 300px; height: 300px; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(161,98,7,.15), rgba(161,98,7,.05));
   border: 1px solid rgba(161,98,7,.2);
   display: flex; align-items: center; justify-content: center;
   color: var(--color-muted-foreground); font-size: 14px; font-weight: 500;
   font-family: var(--font-body); overflow: hidden;
+}
+@media (max-width: 768px) {
+  .hero-image { width: 200px; height: 200px; right: 15px; font-size: 11px; }
 }
 .hero-image::after {
   content: ''; position: absolute; inset: 0; border-radius: 50%;
