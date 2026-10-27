@@ -338,7 +338,24 @@ ul { list-style: none; }
 .pricing-card.featured .pricing-item { background: rgba(161,98,7,.08); }
 .pricing-card.featured .pricing-item .label { color: var(--color-secondary); }
 
-/* Contact */
+/* FAQ */
+.faq { background: var(--color-background); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.faq-item { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 28px; transition: transform .2s, box-shadow .2s; }
+.faq-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.faq-question { display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-family: var(--font-body); font-size: 16px; font-weight: 600; color: var(--color-foreground); }
+.faq-question svg { flex-shrink: 0; transition: transform .3s; }
+.faq-item.open .faq-question svg { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .4s ease; padding-top: 0; padding-bottom: 0; }
+.faq-item.open .faq-answer { max-height: 300px; padding-top: 16px; }
+.faq-answer p { color: var(--color-muted-foreground); font-size: 15px; line-height: 1.7; margin: 0; }
+
+/* Closer / CTA */
+.close { text-align: center; }
+.close .section-label { display: block; margin-bottom: 16px; }
+.close .section-title { font-size: 48px; }
+.close .section-subtitle { margin: 0 auto 32px; }
+.close-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .contact { background: var(--color-primary); position: relative; overflow: hidden; }
 .contact::before {
   content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A16207' fill-opacity='0.04'/%3E%3C/svg%3E");
@@ -681,6 +698,79 @@ ul { list-style: none; }
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section faq" id="faq" style="background: linear-gradient(180deg, var(--color-background), rgba(28,25,23,.9)); position: relative; overflow: hidden; padding: 100px 0;">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Quick answers to common trade questions.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <span>What makes Hills Artesian Spring Water different from other bottled water?</span>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>Hills Artesian Spring Water is sourced from a uniquely protected volcanic aquifer beneath the Sabi Sand region of Mpumalanga, South Africa. The water is naturally filtered through ancient basalt rock, giving it a naturally pure profile (pH 7.0 for still, pH 4.9 for sparkling) and a smooth, clean taste with no added minerals or chemicals.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <span>Is the water naturally still and sparkling, or is it enhanced?</span>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>The still and sparkling are both naturally sourced from the same volcanic aquifer. The sparkling version naturally carbonates at depth under pressure, creating a naturally crisp, effervescent taste. No carbonation is added artificially.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <span>Where is Hills Artesian Spring Water bottled?</span>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>All Hills Artesian Spring Water is bottled at the source in Malelane, Mpumalanga, South Africa. The bottling facility is located directly above the aquifer, ensuring minimal handling and maximum freshness.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <span>What are the case prices for trade accounts?</span>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>Case prices (paks of 12) are as follows: Still 500ml R230/case (R9.50/unit), Sparkling 500ml R242/case (R10.08/unit), Still 750ml R274/case (R11.00/unit), Still 1L R146/case (R12.00/unit), Sparkling 1L R156/case (R13.00/unit). Larger case/pak options are available on request.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <span>Can I order samples or request a trade discount?</span>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#F2A900" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. We welcome wholesale accounts, distributors, and retail partners. Contact us directly at 066 572 9783 or WhatsApp 077 373 9991 to request samples, a trade quotation, or discuss distribution opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Closer / CTA -->
+<section class="section close" id="closer" style="background: linear-gradient(180deg, rgba(28,25,23,.96), rgba(28,25,23,1)); position: relative; overflow: hidden; padding: 100px 0; text-align: center;">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label" style="color: var(--color-accent);">Hills</span>
+      <h2 class="section-title" style="color: #F2A900;">Naturally Rare. Simply Pure.</h2>
+      <p class="section-subtitle" style="color: var(--color-muted); max-width: 600px; margin: 0 auto;">Source from the volcanic aquifer beneath Mpumalanga. Trade wholesale, distribute, or partner with Hills Artesian Spring Water.</p>
+      <div class="close-actions">
+        <a href="#contact" class="btn btn-gold">Request Trade Quotation</a>
+        <a href="https://wa.me/270773739991" target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Contact -->
 <section class="section contact" id="contact" style="background: linear-gradient(180deg, rgba(28,25,23,.92), rgba(28,25,23,.88)); position: relative; overflow: hidden; padding: 100px 0;">
   <div style="position:absolute; inset:0; background: url('assets/contact-bg.png'); background-size: cover; background-position: center; opacity: .12; pointer-events: none;"></div>
@@ -818,6 +908,22 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     btn.style.background = '';
     this.reset();
   }, 3000);
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', function() {
+    const item = this.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    // Open this one
+    if (isOpen) {
+      item.classList.remove('open');
+    } else {
+      item.classList.add('open');
+    }
+  });
 });
 </script>
 </body>
