@@ -474,6 +474,79 @@ ul { list-style: none; }
   .brand-mark { width: 28px; height: 28px; font-size: 14px; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Waterfall & Cold Bottle visual section */
+.visual {
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+.visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A16207' fill-opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+.visual .container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 56px; }
+  .hero { padding: 160px 0 100px; }
+  .hero-image { width: 300px; height: 300px; right: -20px; }
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .story-image { height: 320px; }
+  .pillars, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: 1fr; gap: 40px; }
+  .products-left .section-title { font-size: 32px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer .container { flex-direction: column; text-align: center; }
+  .visual .container { grid-template-columns: 1fr; gap: 40px; }
+  .visual .container > div { display: flex; justify-content: center; }
+  .visual .container > div:last-child { justify-content: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 40px; }
+  .hero p { font-size: 16px; }
+  .hero-badge { font-size: 11px; padding: 4px 12px; }
+  .hero-ctas { flex-direction: column; width: 100%; }
+  .hero-cta-primary, .hero-cta-secondary { text-align: center; }
+  .nav-links { display: none; }
+  .mobile-menu.open { display: flex; }
+  .section-title { font-size: 30px; }
+  .pillars { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card.featured { order: -1; }
+  .pricing-resize { display: none; }
+  .story-figure { display: none; }
+  .story-image { height: 260px; }
+  .products-right .product-visual { height: 260px; }
+  .contact-form { padding: 20px; }
+  .header .container { height: 60px; }
+  .mobile-menu { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 32px; }
+  .brand { font-size: 18px; }
+  .brand-mark { width: 28px; height: 28px; font-size: 14px; }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -767,6 +840,145 @@ ul { list-style: none; }
         <a href="#contact" class="btn btn-gold">Request Trade Quotation</a>
         <a href="https://wa.me/270773739991" target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Waterfall & Cold Bottle -->
+<section class="section visual" id="visual" style="background: var(--color-background); position: relative; overflow: hidden; padding: 100px 0; display: flex; align-items: center; justify-content: center;">
+  <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; width: 100%;">
+    <div style="display: flex; justify-content: center;">
+      <div style="position: relative; width: 100%; max-width: 500px;">
+        <!-- Waterfall SVG -->
+        <svg class="waterfall-svg" viewBox="0 0 600 800" width="500" height="667">
+          <defs>
+            <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#B8860B"/>
+              <stop offset="1" stop-color="#8B6914"/>
+            </linearGradient>
+            <linearGradient id="rockGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4a3f35"/>
+              <stop offset="1" stop-color="#2a2118"/>
+            </linearGradient>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1C1917"/>
+              <stop offset="1" stop-color="#2A2118"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="800" fill="url(#skyGrad)"/>
+          <path d="M0,600 L0,550 Q100,530 200,545 Q300,535 400,550 Q500,540 600,555 L600,600 Z" fill="#3a3128" opacity="0.6"/>
+          <path d="M0,650 L0,620 Q150,600 300,615 Q450,605 600,620 L600,650 Z" fill="#4a3f35" opacity="0.4"/>
+          <path d="M0,0 L0,800 Q150,780 250,800 Q300,790 320,800 L320,0 Z" fill="url(#rockGrad)"/>
+          <path d="M0,0 L0,800 Q100,790 200,800 Q280,795 350,800 L350,0 Z" fill="#3a3128" opacity="0.5"/>
+          <g>
+            <path d="M180,200 Q185,350 180,500 Q180,650 180,800 L175,800 Q175,650 175,500 Q175,350 175,200 Z" fill="url(#waterGrad)" opacity="0.8"/>
+            <path d="M195,210 Q198,360 195,510 Q195,660 195,800 L192,800 Q192,660 192,510 Q192,360 192,210 Z" fill="url(#waterGrad)" opacity="0.7"/>
+            <path d="M210,220 Q212,370 210,520 Q210,670 210,800 L208,800 Q208,670 208,520 Q208,370 208,220 Z" fill="url(#waterGrad)" opacity="0.6"/>
+          </g>
+          <g>
+            <circle cx="172" cy="100" r="2" fill="#D4AF37"><animate attributeName="cy" from="100" to="800" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="182" cy="150" r="2" fill="#D4AF37"><animate attributeName="cy" from="150" to="800" dur="2.5s" repeatCount="indefinite"/></circle>
+            <circle cx="175" cy="80" r="1.5" fill="#D4AF37"><animate attributeName="cy" from="80" to="800" dur="1.8s" repeatCount="indefinite"/></circle>
+            <circle cx="192" cy="120" r="2" fill="#D4AF37"><animate attributeName="cy" from="120" to="800" dur="2.2s" repeatCount="indefinite"/></circle>
+            <circle cx="185" cy="90" r="1.5" fill="#D4AF37"><animate attributeName="cy" from="90" to="800" dur="2.8s" repeatCount="indefinite"/></circle>
+            <circle cx="198" cy="130" r="2" fill="#D4AF37"><animate attributeName="cy" from="130" to="800" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="188" cy="160" r="1.5" fill="#D4AF37"><animate attributeName="cy" from="160" to="800" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle cx="178" cy="200" r="2" fill="#D4AF37"><animate attributeName="cy" from="200" to="800" dur="2.6s" repeatCount="indefinite"/></circle>
+            <circle cx="195" cy="220" r="1.5" fill="#D4AF37"><animate attributeName="cy" from="220" to="800" dur="2.2s" repeatCount="indefinite"/></circle>
+          </g>
+          <ellipse cx="190" cy="800" rx="40" ry="5" fill="#D4AF37" opacity="0.2">
+            <animate attributeName="rx" from="30" to="50" dur="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.2" to="0.4" dur="1.5s" repeatCount="indefinite"/>
+          </ellipse>
+        </svg>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <div style="position: relative; width: 100%, max-width: 500px;">
+        <!-- Cold Bottle SVG -->
+        <svg class="bottle-svg" viewBox="0 0 600 800" width="500" height="667">
+          <defs>
+            <linearGradient id="bottleGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#E8E4DF"/>
+              <stop offset="0.5" stop-color="#D4CCC4"/>
+              <stop offset="1" stop-color="#B8B0A5"/>
+            </linearGradient>
+            <linearGradient id="frostGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F5F5F5"/>
+              <stop offset="0.5" stop-color="#E0E0E0"/>
+              <stop offset="1" stop-color="#C8C8C8"/>
+            </linearGradient>
+            <linearGradient id="liquidGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F5C542"/>
+              <stop offset="1" stop-color="#C8760A"/>
+            </linearGradient>
+            <linearGradient id="shadowGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="rgba(0,0,0,0.2)"/>
+              <stop offset="1" stop-color="rgba(0,0,0,0.4)"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="800" fill="#1C1917" rx="20" ry="20"/>
+          <g opacity="0.7">
+            <path d="M150,300 L158,320 L150,340 L142,320 Z" fill="#FFFFFF" opacity="0.6"/>
+            <path d="M165,320 L172,335 L165,350 L158,335 Z" fill="#FFFFFF" opacity="0.5"/>
+            <path d="M178,330 L185,345 L178,360 L171,345 Z" fill="#FFFFFF" opacity="0.4"/>
+            <path d="M155,310 L160,325 L155,340 L150,325 Z" fill="#FFFFFF" opacity="0.5"/>
+            <path d="M172,338 L177,352 L172,367 L167,352 Z" fill="#FFFFFF" opacity="0.4"/>
+          </g>
+          <g opacity="0.6">
+            <circle cx="155" cy="380" r="3" fill="#FFFFFF" opacity="0.8"/>
+            <circle cx="170" cy="400" r="2" fill="#FFFFFF" opacity="0.6"/>
+            <circle cx="185" cy="420" r="2.5" fill="#FFFFFF" opacity="0.7"/>
+            <circle cx="160" cy="440" r="2" fill="#FFFFFF" opacity="0.5"/>
+            <circle cx="175" cy="460" r="1.5" fill="#FFFFFF" opacity="0.6"/>
+          </g>
+          <path d="M120,800 L120,550 Q120,480 150,450 Q180,420 200,380 L400,380 Q420,420 450,450 Q480,480 480,550 L480,800 Z" fill="url(#bottleGrad)"/>
+          <rect x="160" y="320" width="280" height="80" rx="10" fill="url(#bottleGrad)"/>
+          <rect x="165" y="300" width="270" height="30" rx="5" fill="#8B6914"/>
+          <rect x="170" y="295" width="260" height="10" rx="5" fill="#A16207"/>
+          <rect x="175" y="285" width="250" height="10" rx="5" fill="#D4AF37"/>
+          <rect x="185" y="380" width="230" height="200" rx="8" fill="rgba(0,0,0,0.2)"/>
+          <rect x="185" y="380" width="230" height="200" rx="8" fill="url(#frostGrad)" opacity="0.3"/>
+          <rect x="170" y="350" width="260" height="150" rx="10" fill="url(#liquidGrad)" opacity="0.8"/>
+          <g opacity="0.4">
+            <path d="M175,420 L180,435 L175,450 L170,435 Z" fill="#FFFFFF"/>
+            <path d="M190,430 L195,445 L190,460 L185,445 Z" fill="#FFFFFF"/>
+            <path d="M205,440 L210,455 L205,470 L200,455 Z" fill="#FFFFFF"/>
+          </g>
+          <g opacity="0.5">
+            <rect x="160" y="330" width="280" height="80" rx="10" fill="#FFFFFF" opacity="0.1"/>
+            <rect x="160" y="330" width="280" height="80" rx="10" fill="#FFFFFF" opacity="0.08" transform="rotate(-5, 300, 370)"/>
+          </g>
+          <ellipse cx="300" cy="810" rx="180" ry="15" fill="url(#shadowGrad)"/>
+          <g opacity="0.5">
+            <circle cx="150" cy="600" r="2" fill="#FFFFFF" opacity="0.7"/>
+            <circle cx="160" cy="620" r="1.5" fill="#FFFFFF" opacity="0.5"/>
+            <circle cx="170" cy="640" r="2" fill="#FFFFFF" opacity="0.6"/>
+            <circle cx="180" cy="660" r="1.5" fill="#FFFFFF" opacity="0.4"/>
+            <circle cx="190" cy="680" r="2" fill="#FFFFFF" opacity="0.5"/>
+          </g>
+          <g opacity="0.6">
+            <path d="M200,380 L205,395 L200,410 L195,395 Z" fill="#FFFFFF"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/></path>
+            <path d="M220,390 L225,405 L220,420 L215,405 Z" fill="#FFFFFF"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/></path>
+            <path d="M185,400 L190,415 L185,430 L180,415 Z" fill="#FFFFFF"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/></path>
+          </g>
+          <g>
+            <circle cx="155" cy="370" r="1.5" fill="#FFFFFF"><animate attributeName="cy" from="370" to="600" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0;0.8" dur="4s" repeatCount="indefinite"/></circle>
+            <circle cx="170" cy="390" r="1.5" fill="#FFFFFF"><animate attributeName="cy" from="390" to="600" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="5s" repeatCount="indefinite"/></circle>
+            <circle cx="185" cy="410" r="1.5" fill="#FFFFFF"><animate attributeName="cy" from="410" to="600" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="4.5s" repeatCount="indefinite"/></circle>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 24px;">
+      <span class="section-label" style="display: inline-flex; align-items: center; gap: 8px;">
+        <span style="width: 24px; height: 3px; background: #F2A900; border-radius: 2px;"></span>
+        <span style="color: #F2A900; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Water Source</span>
+      </span>
+      <h2 class="section-title" style="color: var(--color-foreground); font-size: 32px;">Naturally Rare. Simply Pure.</h2>
+      <p class="section-subtitle" style="color: var(--color-muted-foreground); font-size: 17px; max-width: 500px; line-height: 1.7;">
+        Sourced from a protected volcanic aquifer, the water cascades naturally through ancient basalt rock to emerge as pure, chilled spring water.
+      </p>
     </div>
   </div>
 </section>
