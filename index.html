@@ -207,6 +207,14 @@ ul { list-style: none; }
   color: var(--color-foreground); font-size: 16px; font-weight: 300;
   max-width: 700px; line-height: 1.7;
 }
+/* Dark-background sections need light text for the labels/contacts to remain legible */
+.section.label .section-title,
+.section.contact .section-title,
+.section.label .section-subtitle,
+.section.contact .section-subtitle {
+  color: #FFFFFF;
+  text-shadow: 0 1px 5px rgba(0, 64, 64, .25);
+}
 
 /* Story */
 .story { background: var(--color-background); }
