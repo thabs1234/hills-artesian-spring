@@ -115,7 +115,11 @@ ul { list-style: none; }
 /* Hero */
 .hero {
   position: relative; overflow: hidden; padding: 200px 0 120px;
-  background: var(--color-background), url('assets/hero-bg.png') center 30% / cover no-repeat;
+  background-color: var(--color-background);
+  background-image: url('assets/hero-bg.png');
+  background-position: center 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .hero::before {
   content: ''; position: absolute; inset: 0;
