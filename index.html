@@ -115,7 +115,7 @@ ul { list-style: none; }
 /* Hero */
 .hero {
   position: relative; overflow: hidden; padding: 200px 0 120px;
-  background: var(--color-background);
+  background: var(--color-background), url('assets/hero-bg.png') center 30% / cover no-repeat;
 }
 .hero::before {
   content: ''; position: absolute; inset: 0;
@@ -123,6 +123,11 @@ ul { list-style: none; }
     radial-gradient(ellipse 50% 40% at 50% 0%, rgba(184,134,11,.08) 0%, transparent 70%),
     radial-gradient(ellipse 40% 30% at 80% 80%, rgba(161,98,7,.05) 0%, transparent 70%),
     radial-gradient(ellipse 40% 30% at 20% 90%, rgba(184,134,11,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,64,96,.55) 0%, rgba(0,64,64,.28) 55%, rgba(0,64,64,.12) 100%);
   pointer-events: none;
 }
 .hero .container {
