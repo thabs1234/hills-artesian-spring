@@ -1,0 +1,3 @@
+import pymupdf
+doc = pymupdf.open(r'C:\Users\Thabang\Desktop\sdotest.pdf')
+print('Pages:', len(doc))
