@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="600" height="120">
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F5C542"/>
+      <stop offset="0.5" stop-color="#F2A900"/>
+      <stop offset="1" stop-color="#C8760A"/>
+    </linearGradient>
+    <linearGradient id="blackGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A2118"/>
+      <stop offset="1" stop-color="#1C1917"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2A900"/>
+      <stop offset="1" stop-color="#C8760A"/>
+    </linearGradient>
+  </defs>
+
+  <g id="logo">
+
+  <!-- Background -->
+  <rect width="600" height="120" rx="12" fill="url(#blackGrad)"/>
+
+  <!-- Decorative water ripple -->
+  <g opacity="0.08">
+    <circle cx="120" cy="90" r="30" fill="#F2A900"/>
+    <circle cx="420" cy="50" r="20" fill="#F2A900"/>
+    <circle cx="300" cy="75" r="15" fill="#F2A900"/>
+  </g>
+
+  <!-- Water surface (spring) -->
+  <ellipse cx="256" cy="95" rx="70" ry="5" fill="#F2A900" opacity="0.3"/>
+
+  <!-- Mountain / Hills silhouettes (taller, dramatic) -->
+  <!-- Mid hills (soft gold) -->
+  <path d="M0,120 L0,105 Q60,95 120,110 Q180,90 240,115 Q300,85 360,115 Q420,95 480,115 Q540,100 600,110 L600,120 Z" fill="url(#goldGrad)" opacity="0.25"/>
+  <!-- Foreground hills (gold gradient) -->
+  <path d="M0,120 L0,100 Q70,90 140,105 Q210,80 280,110 Q350,80 420,110 Q490,90 560,110 L600,115 L600,120 Z" fill="url(#goldGrad)" opacity="0.45"/>
+  <!-- Background hills (soft gold) -->
+  <path d="M0,120 L0,108 Q80,98 160,113 Q240,90 320,115 Q400,95 480,118 L600,120 L600,120 Z" fill="#D4AF37" opacity="0.18"/>
+
+  <!-- Hill peaks (gold rings) -->
+  <circle cx="280" cy="110" r="6" fill="#F2A900" opacity="0.5"/>
+  <circle cx="280" cy="110" r="3" fill="#D4AF37"/>
+
+  <!-- Water droplet / spring symbol (center) -->
+  <g transform="translate(256, 62)">
+    <path d="M-18,5 C-18,-8 18,-8 18,5 C18,16 -18,16 -18,5 Z" fill="url(#goldGrad)" opacity="0.9"/>
+    <ellipse cx="-6" cy="2" rx="5" ry="2" fill="#FFD54F" opacity="0.6"/>
+  </g>
+
+  <!-- Spring water sparkle -->
+  <g opacity="0.7">
+    <line x1="230" y1="40" x2="242" y2="52" stroke="#F2A900" stroke-width="0.5"/>
+    <line x1="280" y1="40" x2="268" y2="52" stroke="#F2A900" stroke-width="0.5"/>
+    <line x1="256" y1="28" x2="262" y2="40" stroke="#FFD54F" stroke-width="0.5"/>
+  </g>
+
+  <!-- Brand wordmark: "Hills SPRING WATER" -->
+  <text x="256" y="72" text-anchor="middle" font-family="'Cormorant', Georgia, serif" font-size="30" font-weight="600" fill="#FFFFFF">HILLS</text>
+  <text x="256" y="98" text-anchor="middle" font-family="'Montserrat', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="500" fill="#F2A900" letter-spacing="8">SPRING WATER</text>
+</g>
+</svg>
